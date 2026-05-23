@@ -1,2 +1,2 @@
-# Copilot-CLI2
-古いMac OS High SierraでGithub Copilotを練習するためのリポジトリ
+# Gemini-CLI
+古いMac OS High SierraでGemini CLIを練習するためのリポジトリ
