@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Command Center - Gemini CLI</title>
+    <script src="d3.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #0a0e14;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            background-image: radial-gradient(circle at center, #1a2639 0%, #0a0e14 100%);
+        }
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px solid #00ffcc;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        svg {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+        .node {
+            stroke: #00ffcc;
+            stroke-width: 1px;
+            cursor: pointer;
+        }
+        .link {
+            stroke: #00ffcc;
+            stroke-opacity: 0.6;
+            stroke-width: 1px;
+        }
+        text {
+            font-size: 10px;
+            fill: #00ffcc;
+            pointer-events: none;
+            text-shadow: 0 0 5px #000;
+        }
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #ff00ff;
+            padding: 15px;
+            box-shadow: 0 0 15px #ff00ff;
+            display: none;
+        }
+        .status-line {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h1>Visual Command Center</h1>
+        <div>SYSTEM STATUS: <span style="color: #0f0;">ONLINE</span></div>
+        <div>REPO SCAN: COMPLETE</div>
+        <div style="margin-top: 10px; font-size: 0.8rem; color: #ff00ff;">> ACCESSING NEURAL LINKS...</div>
+    </div>
+
+    <div id="info" class="info-panel">
+        <h3 id="node-name">File Info</h3>
+        <p id="node-details"></p>
+        <div style="font-size: 0.7rem; color: #ff00ff;">NEURAL MATCH: 98.4%</div>
+    </div>
+
+    <svg width="100vw" height="100vh"></svg>
+    <div class="status-line">GEMINI-CLI // SF_EXPERIMENT_01 // SECURE_LINE</div>
+
+    <script>
+        const svg = d3.select("svg");
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-200))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        d3.json("repo_data.json").then(data => {
+            console.log("Data loaded:", data);
+            if (!data.nodes || data.nodes.length === 0) {
+                console.error("No nodes found in data");
+                return;
+            }
+            const link = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(data.links)
+                .enter().append("line")
+                .attr("class", "link");
+
+            const node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("g")
+                .data(data.nodes)
+                .enter().append("g")
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended))
+                .on("mouseover", showInfo);
+
+            node.append("circle")
+                .attr("r", d => d.size)
+                .attr("fill", d => {
+                    if (d.group === 0) return "#ff00ff"; // Root
+                    if (d.group === 1) return "#00ccff"; // Dir
+                    return "#00ffcc"; // File
+                })
+                .attr("class", "node")
+                .style("filter", "drop-shadow(0 0 5px currentColor)");
+
+            node.append("text")
+                .attr("dx", 12)
+                .attr("dy", ".35em")
+                .text(d => d.name);
+
+            simulation.nodes(data.nodes).on("tick", ticked);
+            simulation.force("link").links(data.links);
+
+            function ticked() {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            }
+
+            function showInfo(event, d) {
+                const info = d3.select("#info");
+                info.style("display", "block");
+                d3.select("#node-name").text(d.name);
+                d3.select("#node-details").html(`
+                    ID: ${d.id}<br>
+                    TYPE: ${d.type || 'directory'}<br>
+                    SIZE: ${d.size} neural units
+                `);
+            }
+        });
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+</body>
+</html>

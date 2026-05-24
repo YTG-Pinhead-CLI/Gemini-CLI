@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Command Center - Gemini CLI</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #0a0e14;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            background-image: radial-gradient(circle at center, #1a2639 0%, #0a0e14 100%);
+        }
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px solid #00ffcc;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        svg {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+        .node {
+            stroke: #00ffcc;
+            stroke-width: 1px;
+            cursor: pointer;
+        }
+        .link {
+            stroke: #00ffcc;
+            stroke-opacity: 0.6;
+            stroke-width: 1px;
+        }
+        text {
+            font-size: 10px;
+            fill: #00ffcc;
+            pointer-events: none;
+            text-shadow: 0 0 5px #000;
+        }
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #ff00ff;
+            padding: 15px;
+            box-shadow: 0 0 15px #ff00ff;
+            display: none;
+        }
+        .status-line {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h1>Visual Command Center</h1>
+        <div>SYSTEM STATUS: <span style="color: #0f0;">ONLINE</span></div>
+        <div>REPO SCAN: COMPLETE</div>
+        <div style="margin-top: 10px; font-size: 0.8rem; color: #ff00ff;">> ACCESSING NEURAL LINKS...</div>
+    </div>
+
+    <div id="info" class="info-panel">
+        <h3 id="node-name">File Info</h3>
+        <div id="node-details"></div>
+        <div style="font-size: 0.7rem; color: #ff00ff; margin-top: 10px;">NEURAL MATCH: 98.4%</div>
+    </div>
+
+    <svg id="canvas"></svg>
+    <div class="status-line">GEMINI-CLI // SF_EXPERIMENT_01 // SECURE_LINE</div>
+
+    <script>
+        const data = {
+  "nodes": [
+    { "id": "root", "name": "Copilot-CLI2", "group": 0, "size": 25 },
+    { "id": "./gemini_cli_presentation.html", "name": "gemini_cli_presentation.html", "group": 2, "size": 15 },
+    { "id": "./reveal.css", "name": "reveal.css", "group": 2, "size": 12 },
+    { "id": "./repo_brain.py", "name": "repo_brain.py", "group": 2, "size": 10 },
+    { "id": "./vcc_dashboard.html", "name": "vcc_dashboard.html", "group": 2, "size": 10 },
+    { "id": "./Gemini.md", "name": "Gemini.md", "group": 2, "size": 8 },
+    { "id": "lib", "name": "lib", "group": 1, "size": 18 },
+    { "id": "lib/reveal.js", "name": "reveal.js", "group": 1, "size": 15 }
+  ],
+  "links": [
+    { "source": "root", "target": "./gemini_cli_presentation.html" },
+    { "source": "root", "target": "./reveal.css" },
+    { "source": "root", "target": "./repo_brain.py" },
+    { "source": "root", "target": "./vcc_dashboard.html" },
+    { "source": "root", "target": "./Gemini.md" },
+    { "source": "root", "target": "lib" },
+    { "source": "lib", "target": "lib/reveal.js" }
+  ]
+};
+
+        const svg = d3.select("#canvas");
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const simulation = d3.forceSimulation(data.nodes)
+            .force("link", d3.forceLink(data.links).id(d => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const link = svg.append("g")
+            .attr("stroke", "#00ffcc")
+            .attr("stroke-opacity", 0.4)
+            .selectAll("line")
+            .data(data.links)
+            .join("line")
+            .attr("stroke-width", 1);
+
+        const node = svg.append("g")
+            .selectAll("g")
+            .data(data.nodes)
+            .join("g")
+            .attr("class", "node-group")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended))
+            .on("mouseover", (event, d) => {
+                const info = d3.select("#info");
+                info.style("display", "block");
+                d3.select("#node-name").text(d.name);
+                d3.select("#node-details").html(`
+                    ID: ${d.id}<br>
+                    TYPE: ${d.group === 1 ? 'directory' : 'file'}<br>
+                    NEURAL LOAD: ${d.size} units
+                `);
+            });
+
+        node.append("circle")
+            .attr("r", d => d.size)
+            .attr("fill", d => {
+                if (d.group === 0) return "#ff00ff";
+                if (d.group === 1) return "#00ccff";
+                return "#00ffcc";
+            })
+            .style("filter", "drop-shadow(0 0 8px currentColor)");
+
+        node.append("text")
+            .attr("x", d => d.size + 5)
+            .attr("y", 5)
+            .text(d => d.name)
+            .style("fill", "#00ffcc");
+
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        function dragstarted(event) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            event.subject.fx = event.subject.x;
+            event.subject.fy = event.subject.y;
+        }
+
+        function dragged(event) {
+            event.subject.fx = event.x;
+            event.subject.fy = event.y;
+        }
+
+        function dragended(event) {
+            if (!event.active) simulation.alphaTarget(0);
+            event.subject.fx = null;
+            event.subject.fy = null;
+        }
+
+        window.addEventListener('resize', () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            svg.attr("width", w).attr("height", h);
+            simulation.force("center", d3.forceCenter(w / 2, h / 2));
+            simulation.alpha(0.3).restart();
+        });
+    </script>
+</body>
+</html>

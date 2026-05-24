@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Deep Dive: Japan vs UK</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --jp: #ef4444;
+            --uk: #3b82f6;
+            --accent: #10b981;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+        }
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .full-width { grid-column: 1 / -1; }
+        h2 { margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        
+        /* イラスト（SVG）のスタイル */
+        .icon { width: 24px; height: 24px; fill: currentColor; }
+        .illustration {
+            width: 100px; height: 100px; 
+            margin: 10px auto; 
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+        }
+
+        .stats-summary {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Global Migration Dashboard</h1>
+    <p>日本とイギリス：数字と国籍で見比べる「移動」の現在地</p>
+</header>
+
+<div class="dashboard">
+    <!-- 1. 流入数の推移 -->
+    <div class="card full-width">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>
+            1. 移民流入数の推移 (2014-2024)
+        </h2>
+        <div class="chart-container">
+            <canvas id="flowChart"></canvas>
+        </div>
+        <!-- 飛行機のイラスト -->
+        <svg class="illustration" viewBox="0 0 24 24" style="fill: #94a3b8;">
+            <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z"/>
+        </svg>
+    </div>
+
+    <!-- 2. 出身国ランキング（日本） -->
+    <div class="card">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            2. 出身国構成 (日本 2024)
+        </h2>
+        <div class="chart-container">
+            <canvas id="originJPChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 2. 出身国ランキング（イギリス） -->
+    <div class="card">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            2. 出身国構成 (イギリス 2024)
+        </h2>
+        <div class="chart-container">
+            <canvas id="originUKChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 3. 外国人人口比率の変化 -->
+    <div class="card full-width">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            3. 総人口に占める外国人比率 (%)
+        </h2>
+        <div class="chart-container">
+            <canvas id="ratioChart"></canvas>
+        </div>
+        <div class="stats-summary">
+            <span>日本: 2.0% (2019) → 3.3% (2024)</span>
+            <span>イギリス: 16% (2021) → 19% (2024)</span>
+        </div>
+        <!-- 人々のイラスト -->
+        <svg class="illustration" viewBox="0 0 24 24" style="fill: var(--accent); width: 150px;">
+            <path d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.82,11.31 7.76,12.43C7.3,13.29 6.22,13.89 5,13.89C3.34,13.89 2,12.55 2,10.89C2,9.23 3.34,7.89 5,7.89V8M19,8C20.66,8 22,9.34 22,11C22,12.66 20.66,14 19,14C17.78,14 16.7,13.4 16.24,12.54C17.18,11.42 17.62,9.96 17.47,8.53C17.92,8.26 18.44,8.11 19,8.11V8M12,14C14.21,14 19,15.11 19,17.31V20H5V17.31C5,15.11 9.79,14 12,14M19,15.11C20.83,15.9 22,17.27 22,19V20H20V19C20,17.44 19,16.21 17.5,15.39C18,15.14 18.5,15.04 19,15.04V15.11M5,15.11C5.5,15.11 6,15.21 6.5,15.46C5,16.28 4,17.5 4,19V20H2V19C2,17.27 3.17,15.9 5,15.11Z"/>
+        </svg>
+    </div>
+</div>
+
+<script>
+    // 共通設定
+    Chart.defaults.color = '#94a3b8';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+
+    // 1. 流入数推移
+    new Chart(document.getElementById('flowChart'), {
+        type: 'line',
+        data: {
+            labels: ['2014', '16', '18', '20', '22', '24'],
+            datasets: [
+                { label: '日本', data: [210000, 250000, 300000, 100000, 144000, 660000], borderColor: '#ef4444', tension: 0.4, borderWidth: 4 },
+                { label: 'イギリス', data: [632000, 589000, 611000, 606000, 1100000, 1207000], borderColor: '#3b82f6', tension: 0.4, borderWidth: 4 }
+            ]
+        },
+        options: { maintainAspectRatio: false, plugins: { legend: { position: 'top' } } }
+    });
+
+    // 2. 出身国 (日本)
+    new Chart(document.getElementById('originJPChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['中国', 'ベトナム', '韓国', 'フィリピン', 'その他'],
+            datasets: [{
+                data: [844608, 589940, 410257, 336164, 1588008],
+                backgroundColor: ['#f87171', '#fb923c', '#fbbf24', '#facc15', '#475569']
+            }]
+        },
+        options: { maintainAspectRatio: false, cutout: '70%' }
+    });
+
+    // 2. 出身国 (イギリス)
+    new Chart(document.getElementById('originUKChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['インド', 'ポーランド', 'パキスタン', 'ルーマニア', 'その他'],
+            datasets: [{
+                data: [1000000, 900000, 700000, 550000, 8250000],
+                backgroundColor: ['#60a5fa', '#818cf8', '#a78bfa', '#c084fc', '#475569']
+            }]
+        },
+        options: { maintainAspectRatio: false, cutout: '70%' }
+    });
+
+    // 3. 比率
+    new Chart(document.getElementById('ratioChart'), {
+        type: 'bar',
+        data: {
+            labels: ['日本 (2019)', '日本 (2024)', 'イギリス (2021)', 'イギリス (2024)'],
+            datasets: [{
+                label: '外国人人口比率 (%)',
+                data: [2.0, 3.3, 16.0, 19.0],
+                backgroundColor: ['rgba(239, 68, 68, 0.5)', '#ef4444', 'rgba(59, 130, 246, 0.5)', '#3b82f6'],
+                borderRadius: 8
+            }]
+        },
+        options: { 
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true, max: 25 } }
+        }
+    });
+</script>
+
+</body>
+</html>

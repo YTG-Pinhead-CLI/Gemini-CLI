@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>実家の不動産リスク整理（1枚凝縮版）</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            line-height: 1.3;
+            color: #000;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 2px solid #000;
+            padding: 15px;
+            height: 275mm;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 20pt;
+            text-align: center;
+            border-bottom: 3px solid #000;
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+        }
+        h2 {
+            font-size: 15pt;
+            margin: 10px 0 5px 0;
+            border-left: 8px solid #000;
+            padding-left: 8px;
+            background-color: #eee;
+        }
+        .content {
+            font-size: 12pt;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 5px 0;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: left;
+            font-size: 11pt;
+        }
+        th { background-color: #f2f2f2; width: 35%; }
+        .warning {
+            border: 1px solid #000;
+            padding: 8px;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 11pt;
+            background-color: #fff;
+        }
+        ul { margin: 5px 0; padding-left: 20px; }
+        li { margin-bottom: 3px; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .footer {
+            margin-top: auto;
+            text-align: right;
+            font-size: 9pt;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>実家の不動産に関する現状とリスク整理</h1>
+        
+        <div class="section">
+            <h2>１．権利関係のデッドロック（現状：身動き不可）</h2>
+            <div class="content">
+                <p>土地と建物の名義が分かれているため、単独での売却・解体は法的に不可能です。</p>
+                <table>
+                    <tr><th>宅地（1593㎡）</th><td><strong>息子（自分）</strong> 名義</td></tr>
+                    <tr><th>建物（明治・昭和の7棟）</th><td><strong>母</strong> 名義</td></tr>
+                    <tr><th>農地（田・畑 約4000㎡）</th><td><strong>母</strong> 名義（農地法による売却制限あり）</td></tr>
+                </table>
+                <div class="warning">
+                    ※母の判断能力低下後は、建物の処分に家庭裁判所が関与する「成年後見」が必要になります。
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <h2>２．物理的・金銭的リスク</h2>
+                <div class="content">
+                    <strong>■ 倒壊・損害賠償</strong>
+                    <ul>
+                        <li>耐震性なし。地震・台風で倒壊の恐れ。</li>
+                        <li>第三者への被害は所有者が全責任を負う。</li>
+                    </ul>
+                    <strong>■ 維持費の増大</strong>
+                    <ul>
+                        <li>風呂修理（30〜50万）、和式トイレ。</li>
+                        <li>「特定空き家」指定で税金が最大6倍に。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>３．土地処分の難易度</h2>
+                <div class="content">
+                    <strong>■ 広大すぎる土地（計5500㎡）</strong>
+                    <ul>
+                        <li>農地（田）は農家以外に売却不能。</li>
+                        <li>0.81㎡の「飛び地」等、処分不能な負債。</li>
+                    </ul>
+                    <strong>■ 莫大な解体費用</strong>
+                    <ul>
+                        <li>全棟（約480㎡）の更地化には<br><strong>1,000万円以上</strong>の自己負担が必要。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>４．現実的な選択肢の比較</h2>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 25%;">案</th>
+                        <th>内容</th>
+                        <th>将来の負担</th>
+                    </tr>
+                    <tr>
+                        <td><strong>A：現状維持</strong></td>
+                        <td>母の年金内で住み続ける。</td>
+                        <td><strong>最大。</strong>将来の数千万の負債を子供が継承。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B：早期整理</strong></td>
+                        <td>判断能力があるうちに解体・集約。</td>
+                        <td><strong>最小化。</strong>負債を今のうちに清算する。</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            作成日：2026年05月18日 ／ 本資料は客観的事実に基づき構成されています。
+        </div>
+    </div>
+
+</body>
+</html>

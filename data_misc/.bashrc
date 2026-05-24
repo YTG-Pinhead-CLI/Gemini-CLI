@@ -1,0 +1,1 @@
+alias mission='python3 /workspaces/Copilot-CLI2/dashboard.py

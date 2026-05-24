@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>これからの安心な暮らしについて</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            page-break-after: always;
+            border: 1px solid #ccc;
+            padding: 40px;
+            height: 250mm; /* A4 height approx */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 32pt;
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+        }
+        h2 {
+            font-size: 24pt;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        .content {
+            font-size: 20pt;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+        li::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #eee;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: auto;
+            text-align: right;
+            font-size: 14pt;
+            color: #666;
+        }
+        /* 印刷時にボーダーを消す */
+        @media print {
+            .slide {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- スライド 1: 表紙 -->
+    <div class="slide">
+        <h1>これからの安心な暮らしについて</h1>
+        <div class="content" style="text-align: center;">
+            <p>お母さんの健康と、<br>家族みんなの安心のために</p>
+            <p style="margin-top: 100px;">2026年5月18日</p>
+        </div>
+    </div>
+
+    <!-- スライド 2: 今、大切にしたいこと -->
+    <div class="slide">
+        <h2>１．今、大切にしたいこと</h2>
+        <div class="content">
+            <ul>
+                <li>お母さんが「痛い思い」をせずに暮らすこと</li>
+                <li>冬に「暖かいお風呂」に入れるようにすること</li>
+                <li>困ったときに、すぐに誰かが助けてくれること</li>
+            </ul>
+            <p style="margin-top: 40px; font-weight: bold;">⇒ そのために、お医者さんや介護のプロの知恵を借ります。</p>
+        </div>
+    </div>
+
+    <!-- スライド 3: お家の「健康診断」の結果 -->
+    <div class="slide">
+        <h2>２．お家の「健康診断」</h2>
+        <div class="content">
+            <p>長い間、私たちを守ってくれた大切なお家ですが、<br>少しずつ「お疲れ」が出てきています。</p>
+            <ul>
+                <li><span class="highlight">お風呂：</span> お湯が出なくなっていて、冬は体が冷えてしまいます。</li>
+                <li><span class="highlight">トイレ：</span> 和式は膝や腰への負担が大きく、転倒の心配があります。</li>
+                <li><span class="highlight">お庭・建物：</span> 木や塀の管理など、お母さん一人では大変な作業が増えています。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- スライド 4: 私たちが心配していること -->
+    <div class="slide">
+        <h2>３．家族が心配していること</h2>
+        <div class="content">
+            <ul>
+                <li>夜中に一人で不安な気持ちにならないか</li>
+                <li>家の不具合で、お母さんがケガをしないか</li>
+                <li>地震や台風のとき、古い建物が危なくないか</li>
+            </ul>
+            <p style="margin-top: 40px;">お母さんには、いつも笑顔でいてほしいと思っています。</p>
+        </div>
+    </div>
+
+    <!-- スライド 5: これからの進め方 -->
+    <div class="slide">
+        <h2>４．これから一緒に考えること</h2>
+        <div class="content">
+            <p>急ぐ必要はありません。一つずつ、みんなで考えましょう。</p>
+            <ul>
+                <li>まずは「訪問診療」で健康をしっかり守る</li>
+                <li>お家の危ないところを、プロと一緒に確認する</li>
+                <li>お母さんの「思い出」を大切にしながら、一番良い方法を相談する</li>
+            </ul>
+        </div>
+        <div class="footer">
+            みんなでお母さんを支えていきます
+        </div>
+    </div>
+
+</body>
+</html>

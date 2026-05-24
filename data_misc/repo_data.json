@@ -1,0 +1,1155 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "name": "Copilot-CLI2",
+      "group": 0,
+      "size": 20
+    },
+    {
+      "id": "./gemini_cli_presentation.html",
+      "name": "gemini_cli_presentation.html",
+      "group": 2,
+      "size": 30,
+      "type": ".html"
+    },
+    {
+      "id": "./reveal.css",
+      "name": "reveal.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "./build_final.sh",
+      "name": "build_final.sh",
+      "group": 2,
+      "size": 5,
+      "type": ".sh"
+    },
+    {
+      "id": "./property_risk_compressed.html",
+      "name": "property_risk_compressed.html",
+      "group": 2,
+      "size": 6,
+      "type": ".html"
+    },
+    {
+      "id": "./house_problem.md",
+      "name": "house_problem.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./black.css",
+      "name": "black.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "./repo_brain.py",
+      "name": "repo_brain.py",
+      "group": 2,
+      "size": 5,
+      "type": ".py"
+    },
+    {
+      "id": "./property_risk_presentation.html",
+      "name": "property_risk_presentation.html",
+      "group": 2,
+      "size": 6,
+      "type": ".html"
+    },
+    {
+      "id": "./vcc_dashboard.html",
+      "name": "vcc_dashboard.html",
+      "group": 2,
+      "size": 5,
+      "type": ".html"
+    },
+    {
+      "id": "./package.json",
+      "name": "package.json",
+      "group": 2,
+      "size": 5,
+      "type": ".json"
+    },
+    {
+      "id": "./.gitignore",
+      "name": ".gitignore",
+      "group": 2,
+      "size": 5,
+      "type": ""
+    },
+    {
+      "id": "./reset.css",
+      "name": "reset.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "./property_risk_max_font.html",
+      "name": "property_risk_max_font.html",
+      "group": 2,
+      "size": 5,
+      "type": ".html"
+    },
+    {
+      "id": "./inline_build.sh",
+      "name": "inline_build.sh",
+      "group": 2,
+      "size": 5,
+      "type": ".sh"
+    },
+    {
+      "id": "./chart.js",
+      "name": "chart.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "./Gemini.md",
+      "name": "Gemini.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./package-lock.json",
+      "name": "package-lock.json",
+      "group": 2,
+      "size": 30,
+      "type": ".json"
+    },
+    {
+      "id": "./d3_reveal_standalone.html",
+      "name": "d3_reveal_standalone.html",
+      "group": 2,
+      "size": 30,
+      "type": ".html"
+    },
+    {
+      "id": "./gentle_presentation.html",
+      "name": "gentle_presentation.html",
+      "group": 2,
+      "size": 5,
+      "type": ".html"
+    },
+    {
+      "id": "./immigration_infographic.html",
+      "name": "immigration_infographic.html",
+      "group": 2,
+      "size": 5,
+      "type": ".html"
+    },
+    {
+      "id": "./standalone_presentation.html",
+      "name": "standalone_presentation.html",
+      "group": 2,
+      "size": 30,
+      "type": ".html"
+    },
+    {
+      "id": "./.bashrc",
+      "name": ".bashrc",
+      "group": 2,
+      "size": 5,
+      "type": ""
+    },
+    {
+      "id": "./property_risk_single.html",
+      "name": "property_risk_single.html",
+      "group": 2,
+      "size": 5,
+      "type": ".html"
+    },
+    {
+      "id": "./README.md",
+      "name": "README.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./dashboard.py",
+      "name": "dashboard.py",
+      "group": 2,
+      "size": 5,
+      "type": ".py"
+    },
+    {
+      "id": "./autogem.py",
+      "name": "autogem.py",
+      "group": 2,
+      "size": 5,
+      "type": ".py"
+    },
+    {
+      "id": "./reveal.js",
+      "name": "reveal.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "./slides.md",
+      "name": "slides.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./build_standalone.py",
+      "name": "build_standalone.py",
+      "group": 2,
+      "size": 5,
+      "type": ".py"
+    },
+    {
+      "id": "./auto_presentation.html",
+      "name": "auto_presentation.html",
+      "group": 2,
+      "size": 30,
+      "type": ".html"
+    },
+    {
+      "id": "./family_strategy.md",
+      "name": "family_strategy.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./d3.min.js",
+      "name": "d3.min.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "./build_d3_standalone.py",
+      "name": "build_d3_standalone.py",
+      "group": 2,
+      "size": 8,
+      "type": ".py"
+    },
+    {
+      "id": "./advanced_immigration_infographic.html",
+      "name": "advanced_immigration_infographic.html",
+      "group": 2,
+      "size": 8,
+      "type": ".html"
+    },
+    {
+      "id": "./build_gemini_cli.sh",
+      "name": "build_gemini_cli.sh",
+      "group": 2,
+      "size": 5,
+      "type": ".sh"
+    },
+    {
+      "id": "./presentation.html",
+      "name": "presentation.html",
+      "group": 2,
+      "size": 30,
+      "type": ".html"
+    },
+    {
+      "id": "./combined_script.js",
+      "name": "combined_script.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "./d3_immigration_bubbles.html",
+      "name": "d3_immigration_bubbles.html",
+      "group": 2,
+      "size": 6,
+      "type": ".html"
+    },
+    {
+      "id": "./brain_dump.md",
+      "name": "brain_dump.md",
+      "group": 2,
+      "size": 5,
+      "type": ".md"
+    },
+    {
+      "id": "./combined_style.css",
+      "name": "combined_style.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "css",
+      "name": "css",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "js",
+      "name": "js",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "layouts",
+      "name": "layouts",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib",
+      "name": "lib",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/chart.js",
+      "name": "chart.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/mermaid.min.js",
+      "name": "mermaid.min.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js",
+      "name": "reveal.js",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/reveal.js/reveal.css",
+      "name": "reveal.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/reveal.d.ts",
+      "name": "reveal.d.ts",
+      "group": 2,
+      "size": 21,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/config.d.ts",
+      "name": "config.d.ts",
+      "group": 2,
+      "size": 21,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/reset.css",
+      "name": "reset.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/reveal.mjs",
+      "name": "reveal.mjs",
+      "group": 2,
+      "size": 30,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/reveal.js",
+      "name": "reveal.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/theme",
+      "name": "theme",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/reveal.js/theme/sky.css",
+      "name": "sky.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/dracula.css",
+      "name": "dracula.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/black.css",
+      "name": "black.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/night.css",
+      "name": "night.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/simple.css",
+      "name": "simple.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/blood.css",
+      "name": "blood.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/black-contrast.css",
+      "name": "black-contrast.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/serif.css",
+      "name": "serif.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/beige.css",
+      "name": "beige.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/white-contrast.css",
+      "name": "white-contrast.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/moon.css",
+      "name": "moon.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/league.css",
+      "name": "league.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/white.css",
+      "name": "white.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/theme/solarized.css",
+      "name": "solarized.css",
+      "group": 2,
+      "size": 30,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/plugin",
+      "name": "plugin",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/reveal.js/plugin/search.js",
+      "name": "search.js",
+      "group": 2,
+      "size": 5,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/search.d.ts",
+      "name": "search.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/zoom.d.ts",
+      "name": "zoom.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/search.mjs",
+      "name": "search.mjs",
+      "group": 2,
+      "size": 5,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/zoom.js",
+      "name": "zoom.js",
+      "group": 2,
+      "size": 5,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/math.mjs",
+      "name": "math.mjs",
+      "group": 2,
+      "size": 5,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/markdown.js",
+      "name": "markdown.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/markdown.d.ts",
+      "name": "markdown.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/notes.js",
+      "name": "notes.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/zoom.mjs",
+      "name": "zoom.mjs",
+      "group": 2,
+      "size": 5,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/notes.d.ts",
+      "name": "notes.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/math.js",
+      "name": "math.js",
+      "group": 2,
+      "size": 5,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/markdown.mjs",
+      "name": "markdown.mjs",
+      "group": 2,
+      "size": 30,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/notes.mjs",
+      "name": "notes.mjs",
+      "group": 2,
+      "size": 30,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight.d.ts",
+      "name": "highlight.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight.js",
+      "name": "highlight.js",
+      "group": 2,
+      "size": 30,
+      "type": ".js"
+    },
+    {
+      "id": "lib/reveal.js/plugin/math.d.ts",
+      "name": "math.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight.mjs",
+      "name": "highlight.mjs",
+      "group": 2,
+      "size": 30,
+      "type": ".mjs"
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight",
+      "name": "highlight",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight/zenburn.css",
+      "name": "zenburn.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/plugin/highlight/monokai.css",
+      "name": "monokai.css",
+      "group": 2,
+      "size": 5,
+      "type": ".css"
+    },
+    {
+      "id": "lib/reveal.js/utils",
+      "name": "utils",
+      "group": 1,
+      "size": 15
+    },
+    {
+      "id": "lib/reveal.js/utils/constants.d.ts",
+      "name": "constants.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/utils/color.d.ts",
+      "name": "color.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/utils/util.d.ts",
+      "name": "util.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/utils/device.d.ts",
+      "name": "device.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    },
+    {
+      "id": "lib/reveal.js/utils/loader.d.ts",
+      "name": "loader.d.ts",
+      "group": 2,
+      "size": 5,
+      "type": ".ts"
+    }
+  ],
+  "links": [
+    {
+      "source": "root",
+      "target": "./gemini_cli_presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./reveal.css",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./build_final.sh",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./property_risk_compressed.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./house_problem.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./black.css",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./repo_brain.py",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./property_risk_presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./vcc_dashboard.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./package.json",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./.gitignore",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./reset.css",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./property_risk_max_font.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./inline_build.sh",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./chart.js",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./Gemini.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./package-lock.json",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./d3_reveal_standalone.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./gentle_presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./immigration_infographic.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./standalone_presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./.bashrc",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./property_risk_single.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./README.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./dashboard.py",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./autogem.py",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./reveal.js",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./slides.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./build_standalone.py",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./auto_presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./family_strategy.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./d3.min.js",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./build_d3_standalone.py",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./advanced_immigration_infographic.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./build_gemini_cli.sh",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./presentation.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./combined_script.js",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./d3_immigration_bubbles.html",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./brain_dump.md",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "./combined_style.css",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "css",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "js",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "layouts",
+      "value": 1
+    },
+    {
+      "source": "root",
+      "target": "lib",
+      "value": 1
+    },
+    {
+      "source": "lib",
+      "target": "lib/chart.js",
+      "value": 1
+    },
+    {
+      "source": "lib",
+      "target": "lib/mermaid.min.js",
+      "value": 1
+    },
+    {
+      "source": "lib",
+      "target": "lib/reveal.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/reveal.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/reveal.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/config.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/reset.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/reveal.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/reveal.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/theme",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/sky.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/dracula.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/black.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/night.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/simple.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/blood.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/black-contrast.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/serif.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/beige.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/white-contrast.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/moon.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/league.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/white.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/theme",
+      "target": "lib/reveal.js/theme/solarized.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/plugin",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/search.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/search.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/zoom.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/search.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/zoom.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/math.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/markdown.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/markdown.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/notes.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/zoom.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/notes.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/math.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/markdown.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/notes.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/highlight.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/highlight.js",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/math.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/highlight.mjs",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin",
+      "target": "lib/reveal.js/plugin/highlight",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin/highlight",
+      "target": "lib/reveal.js/plugin/highlight/zenburn.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/plugin/highlight",
+      "target": "lib/reveal.js/plugin/highlight/monokai.css",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js",
+      "target": "lib/reveal.js/utils",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/utils",
+      "target": "lib/reveal.js/utils/constants.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/utils",
+      "target": "lib/reveal.js/utils/color.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/utils",
+      "target": "lib/reveal.js/utils/util.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/utils",
+      "target": "lib/reveal.js/utils/device.d.ts",
+      "value": 1
+    },
+    {
+      "source": "lib/reveal.js/utils",
+      "target": "lib/reveal.js/utils/loader.d.ts",
+      "value": 1
+    }
+  ]
+}

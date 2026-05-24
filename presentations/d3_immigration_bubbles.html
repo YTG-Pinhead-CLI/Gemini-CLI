@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>D3.js Immigration Visualizer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; background: #0b0f19; color: #f8fafc; font-family: 'Inter', sans-serif; overflow: hidden; }
+        #viz { width: 100vw; height: 100vh; }
+        .controls { position: fixed; top: 20px; left: 20px; z-index: 100; display: flex; gap: 10px; }
+        button { 
+            background: #1e293b; color: white; border: 1px solid #334155; 
+            padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background: #334155; border-color: #475569; }
+        button.active { background: #3b82f6; border-color: #60a5fa; }
+        .tooltip {
+            position: absolute; visibility: hidden; background: rgba(0,0,0,0.8);
+            padding: 10px; border-radius: 4px; pointer-events: none; font-size: 0.9rem;
+            border: 1px solid #444;
+        }
+        .label { font-size: 12px; fill: #94a3b8; pointer-events: none; text-anchor: middle; }
+        .title { position: fixed; bottom: 40px; right: 40px; text-align: right; pointer-events: none; }
+        h1 { margin: 0; font-size: 3rem; color: #3b82f6; opacity: 0.8; }
+        p { margin: 5px 0 0; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button id="btn-jp" class="active">JAPAN</button>
+        <button id="btn-uk">UNITED KINGDOM</button>
+    </div>
+
+    <div id="viz"></div>
+    <div class="tooltip" id="tooltip"></div>
+
+    <div class="title">
+        <h1 id="country-name">JAPAN</h1>
+        <p>外国人在留者数・出身国籍別 (2024)</p>
+    </div>
+
+    <script>
+        // データ (概数値)
+        const data = {
+            jp: [
+                { name: "中国", value: 844, color: "#f87171" },
+                { name: "ベトナム", value: 590, color: "#fb923c" },
+                { name: "韓国", value: 410, color: "#fbbf24" },
+                { name: "フィリピン", value: 336, color: "#facc15" },
+                { name: "ブラジル", value: 210, color: "#a3e635" },
+                { name: "ネパール", value: 207, color: "#2dd4bf" },
+                { name: "インドネシア", value: 173, color: "#22d3ee" },
+                { name: "その他", value: 1000, color: "#475569" }
+            ],
+            uk: [
+                { name: "インド", value: 1000, color: "#60a5fa" },
+                { name: "ポーランド", value: 900, color: "#818cf8" },
+                { name: "パキスタン", value: 700, color: "#a78bfa" },
+                { name: "ルーマニア", value: 550, color: "#c084fc" },
+                { name: "ナイジェリア", value: 450, color: "#e879f9" },
+                { name: "アイルランド", value: 400, color: "#f472b6" },
+                { name: "イタリア", value: 300, color: "#fb7185" },
+                { name: "その他", value: 7100, color: "#475569" }
+            ]
+        };
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("#viz").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        const tooltip = d3.select("#tooltip");
+
+        let currentData = data.jp;
+
+        function update(nodesData) {
+            const pack = d3.pack()
+                .size([width, height])
+                .padding(5);
+
+            const root = d3.hierarchy({ children: nodesData })
+                .sum(d => d.value);
+
+            const nodes = pack(root).leaves();
+
+            const circles = svg.selectAll("circle")
+                .data(nodes, d => d.data.name);
+
+            // EXIT
+            circles.exit()
+                .transition().duration(1000)
+                .attr("r", 0)
+                .remove();
+
+            // ENTER + UPDATE
+            const circlesEnter = circles.enter().append("circle")
+                .attr("r", 0)
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y)
+                .style("fill", d => d.data.color)
+                .style("stroke", "#fff")
+                .style("stroke-width", 0)
+                .on("mouseover", function(event, d) {
+                    d3.select(this).style("stroke-width", 2);
+                    tooltip.style("visibility", "visible")
+                        .html(`<strong>${d.data.name}</strong><br>約 ${d.data.value.toLocaleString()},000人`);
+                })
+                .on("mousemove", function(event) {
+                    tooltip.style("top", (event.pageY - 10) + "px")
+                        .style("left", (event.pageX + 10) + "px");
+                })
+                .on("mouseout", function() {
+                    d3.select(this).style("stroke-width", 0);
+                    tooltip.style("visibility", "hidden");
+                });
+
+            circles.merge(circlesEnter)
+                .transition().duration(1500)
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y)
+                .attr("r", d => d.r)
+                .style("fill", d => d.data.color);
+
+            // LABELS
+            const labels = svg.selectAll(".label")
+                .data(nodes, d => d.data.name);
+
+            labels.exit().remove();
+
+            const labelsEnter = labels.enter().append("text")
+                .attr("class", "label")
+                .attr("dy", ".3em")
+                .style("opacity", 0);
+
+            labels.merge(labelsEnter)
+                .transition().duration(1500)
+                .attr("x", d => d.x)
+                .attr("y", d => d.y)
+                .text(d => d.r > 20 ? d.data.name : "")
+                .style("opacity", 1);
+        }
+
+        update(data.jp);
+
+        d3.select("#btn-jp").on("click", function() {
+            d3.selectAll("button").classed("active", false);
+            d3.select(this).classed("active", true);
+            d3.select("#country-name").text("JAPAN").style("color", "#ef4444");
+            update(data.jp);
+        });
+
+        d3.select("#btn-uk").on("click", function() {
+            d3.selectAll("button").classed("active", false);
+            d3.select(this).classed("active", true);
+            d3.select("#country-name").text("UNITED KINGDOM").style("color", "#3b82f6");
+            update(data.uk);
+        });
+
+        window.addEventListener("resize", () => location.reload());
+    </script>
+</body>
+</html>
