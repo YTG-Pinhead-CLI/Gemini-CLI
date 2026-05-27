@@ -1,2 +1,2 @@
 # Antigravity-CLI
-古いMac OS High SierraでGemini CLIを練習するためのリポジトリ
+古いMac OS High SierraでAntigravity CLIを練習するためのリポジトリ
